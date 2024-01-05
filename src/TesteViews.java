@@ -1,4 +1,4 @@
-import views.Login;
+import views.MenuPrincipal;
 
 import java.awt.*;
 
@@ -7,8 +7,8 @@ public class TesteViews {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    Login frame = new Login();
-                    frame.setVisible(true);
+                    MenuPrincipal menuPrincipal = new MenuPrincipal();
+                    menuPrincipal.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
