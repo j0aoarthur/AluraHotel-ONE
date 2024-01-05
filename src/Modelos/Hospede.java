@@ -12,15 +12,6 @@ public class Hospede {
     private Date data_nascimento;
     private int id_reserva;
 
-    public Hospede(int id, String nome, String sobrenome, String nacionalidade, String telefone, Date data_nascimento) {
-        this.id = id;
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.nacionalidade = nacionalidade;
-        this.telefone = telefone;
-        this.data_nascimento = data_nascimento;
-    }
-
     public Hospede(String nome, String sobrenome, String nacionalidade, String telefone, Date data_nascimento, int id_reserva) {
         this.nome = nome;
         this.sobrenome = sobrenome;
@@ -74,9 +65,5 @@ public class Hospede {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setId_reserva(int id_reserva) {
-        this.id_reserva = id_reserva;
     }
 }
