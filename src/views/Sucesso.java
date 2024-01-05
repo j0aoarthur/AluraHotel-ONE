@@ -38,17 +38,21 @@ public class Sucesso extends JDialog {
 	 * Create the dialog.
 	 */
 	public Sucesso() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(Sucesso.class.getResource("/imagenes/aH-40px.png")));
-		setBounds(100, 100, 394, 226);
+		setTitle("Sucesso");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(Sucesso.class.getResource("/imagens/aH-40px.png")));
+		setBounds(100, 100, 350, 226);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBackground(SystemColor.control);
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
 		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+		setResizable(false);
+
 		contentPanel.setLayout(null);
 		{
 			JLabel lblNewLabel = new JLabel("");
-			lblNewLabel.setIcon(new ImageIcon(Sucesso.class.getResource("/imagenes/Ha-100px.png")));
+			lblNewLabel.setIcon(new ImageIcon(Sucesso.class.getResource("/imagens/Ha-100px.png")));
 			lblNewLabel.setBounds(123, 11, 100, 100);
 			contentPanel.add(lblNewLabel);
 		}
@@ -80,6 +84,7 @@ public class Sucesso extends JDialog {
 				JButton cancelButton = new JButton("Cancel");
 				cancelButton.setActionCommand("Cancel");
 				buttonPane.add(cancelButton);
+				cancelButton.addActionListener(e -> dispose());
 			}
 		}
 	}
