@@ -21,8 +21,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.Toolkit;
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeEvent;
 import java.text.NumberFormat;
 import java.util.Date;
 
@@ -230,11 +228,11 @@ public class ReservasView extends JFrame {
 		panel_1.add(logo);
 		logo.setIcon(new ImageIcon(ReservasView.class.getResource("/imagens/Ha-100px.png")));
 		
-		JLabel imagenFondo = new JLabel("");
-		imagenFondo.setBounds(0, 140, 500, 409);
-		panel_1.add(imagenFondo);
-		imagenFondo.setBackground(Color.WHITE);
-		imagenFondo.setIcon(new ImageIcon(ReservasView.class.getResource("/imagens/reservas-img-3.png")));
+		JLabel imagemFundo = new JLabel("");
+		imagemFundo.setBounds(0, 140, 500, 409);
+		panel_1.add(imagemFundo);
+		imagemFundo.setBackground(Color.WHITE);
+		imagemFundo.setIcon(new ImageIcon(ReservasView.class.getResource("/imagens/reservas-img-3.png")));
 		
 		JPanel btnexit = new JPanel();
 		btnexit.addMouseListener(new MouseAdapter() {
