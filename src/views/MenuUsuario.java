@@ -6,13 +6,10 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.ActionEvent;
 import java.awt.Toolkit;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseMotionAdapter;
@@ -49,7 +46,7 @@ public class MenuUsuario extends JFrame {
 	 * Create the frame.
 	 */
 	public MenuUsuario() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuUsuario.class.getResource("/imagenes/aH-40px.png")));
+		setIconImage(Toolkit.getDefaultToolkit().getImage(MenuUsuario.class.getResource("/imagens/aH-40px.png")));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 944, 609);
 		contentPane = new JPanel();
@@ -106,7 +103,7 @@ public class MenuUsuario extends JFrame {
 		panelMenu.add(btnBuscar);
 		
 		JLabel lblBusquedaDeReservas = new JLabel("Buscar");
-		lblBusquedaDeReservas.setIcon(new ImageIcon(MenuUsuario.class.getResource("/imagenes/pessoas.png")));
+		lblBusquedaDeReservas.setIcon(new ImageIcon(MenuUsuario.class.getResource("/imagens/pessoas.png")));
 		lblBusquedaDeReservas.setBounds(30, 11, 200, 34);
 		lblBusquedaDeReservas.setHorizontalAlignment(SwingConstants.LEFT);
 		lblBusquedaDeReservas.setForeground(Color.WHITE);
@@ -116,7 +113,7 @@ public class MenuUsuario extends JFrame {
 		JLabel logo = new JLabel("");
 		logo.setBounds(50, 58, 150, 150);
 		panelMenu.add(logo);
-		logo.setIcon(new ImageIcon(MenuUsuario.class.getResource("/imagenes/aH-150px.png")));
+		logo.setIcon(new ImageIcon(MenuUsuario.class.getResource("/imagens/aH-150px.png")));
 		
 		JPanel btnRegistro = new JPanel();
 		btnRegistro.addMouseListener(new MouseAdapter() {
@@ -142,7 +139,7 @@ public class MenuUsuario extends JFrame {
 		btnRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 		
 		labelRegistro = new JLabel("Registro de reservas");
-		labelRegistro.setIcon(new ImageIcon(MenuUsuario.class.getResource("/imagenes/reservado.png")));
+		labelRegistro.setIcon(new ImageIcon(MenuUsuario.class.getResource("/imagens/reservado.png")));
 		labelRegistro.setForeground(SystemColor.text);
 		labelRegistro.setBounds(25, 11, 205, 34);
 		labelRegistro.setFont(new Font("Roboto", Font.PLAIN, 18));
@@ -193,13 +190,13 @@ public class MenuUsuario extends JFrame {
 	    panelFecha.setLayout(null);
 	    
 	    JLabel lblTituloPrincipal = new JLabel("Sistema de reservas Hotel Alura");
-	    lblTituloPrincipal.setBounds(180, 11, 356, 42);
+	    lblTituloPrincipal.setBounds(180, 11, 500, 42);
 	    panelFecha.add(lblTituloPrincipal);
 	    lblTituloPrincipal.setForeground(Color.WHITE);
 	    lblTituloPrincipal.setFont(new Font("Roboto", Font.PLAIN, 24));
 	    
 	    JLabel labelFecha = new JLabel("New label");
-	    labelFecha.setBounds(35, 64, 294, 36);
+	    labelFecha.setBounds(210, 55, 450, 50);
 	    panelFecha.add(labelFecha);
 	    labelFecha.setForeground(Color.WHITE);
 	    labelFecha.setFont(new Font("Roboto", Font.PLAIN, 33));
@@ -232,7 +229,7 @@ public class MenuUsuario extends JFrame {
 	    
 	    JLabel labelDescricao_3 = new JLabel("- Edição de Reservas e Hóspedes existentes");
 	    labelDescricao_3.setFont(new Font("Roboto", Font.PLAIN, 17));
-	    labelDescricao_3.setBounds(312, 482, 355, 27);
+	    labelDescricao_3.setBounds(312, 482, 380, 27);
 	    contentPane.add(labelDescricao_3);
 	    
 	    JLabel labelDescricao_4 = new JLabel("- Excluir todos os tipos de registros");
