@@ -1,9 +1,7 @@
 package DAO;
 
-import Modelos.Hospede;
 import Modelos.Reserva;
 
-import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

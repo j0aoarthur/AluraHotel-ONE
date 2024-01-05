@@ -59,16 +59,14 @@ public class ReservasView extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ReservasView frame = new ReservasView();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		EventQueue.invokeLater(() -> {
+            try {
+                ReservasView frame = new ReservasView();
+                frame.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 	}
 
 	/**
@@ -159,7 +157,6 @@ public class ReservasView extends JFrame {
 		txtDataS.getCalendarButton().setBounds(267, 1, 21, 31);
 		txtDataS.setBackground(Color.WHITE);
 		txtDataS.setFont(new Font("Roboto", Font.PLAIN, 18));
-		Date minDate = new Date(System.currentTimeMillis() + 86400000);
 		txtDataS.setDate(new Date(System.currentTimeMillis() + 86400000));
 		txtDataS.setMinSelectableDate(new Date());
 		txtDataS.setDateFormatString("yyyy-MM-dd");
@@ -167,30 +164,24 @@ public class ReservasView extends JFrame {
 		txtDataS.setBorder(new LineBorder(new Color(255, 255, 255), 0));
 		panel.add(txtDataS);
 
-		txtDataE.addPropertyChangeListener(new PropertyChangeListener() {
-			@Override
-			public void propertyChange(PropertyChangeEvent evt) {
-				txtDataS.setMinSelectableDate(txtDataE.getDate());
-			}
-		});
-		txtDataS.addPropertyChangeListener(new PropertyChangeListener() {
-			public void propertyChange(PropertyChangeEvent evt) {
-				if (!txtDataS.getDate().toString().isEmpty() && !txtDataE.getDate().toString().isEmpty()) {
-					try {
-						valorReserva = calcularValorReserva(txtDataE.getDate(), txtDataS.getDate());
+		txtDataE.addPropertyChangeListener(evt -> txtDataS.setMinSelectableDate(txtDataE.getDate()));
 
-						NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
-						String valorFormatado = formatoMoeda.format(valorReserva);
+		txtDataS.addPropertyChangeListener(evt -> {
+            if (!txtDataS.getDate().toString().isEmpty() && !txtDataE.getDate().toString().isEmpty()) {
+                try {
+                    valorReserva = calcularValorReserva(txtDataE.getDate(), txtDataS.getDate());
 
-						txtValor.setText(valorFormatado);
-					}
-					catch (Exception exception) {
-						JOptionPane.showMessageDialog(contentPane, exception.getMessage());
-					}
-				}
+                    NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+                    String valorFormatado = formatoMoeda.format(valorReserva);
 
-			}
-		});
+                    txtValor.setText(valorFormatado);
+                }
+                catch (Exception exception) {
+                    JOptionPane.showMessageDialog(contentPane, exception.getMessage());
+                }
+            }
+
+        });
 		
 		txtValor = new JTextField();
 		txtValor.setBackground(SystemColor.text);
@@ -383,7 +374,7 @@ public class ReservasView extends JFrame {
 
 		if (compararDatas < 0) {
 			long diferencaMilisegundos = date_saida.getTime() - date_entrada.getTime();
-			Long diferencaDias = TimeUnit.MILLISECONDS.toDays(diferencaMilisegundos);
+			long diferencaDias = TimeUnit.MILLISECONDS.toDays(diferencaMilisegundos);
 			return diferencaDias * VALOR_DIARIA;
 		}
 		else if (compararDatas > 0) {

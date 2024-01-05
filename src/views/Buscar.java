@@ -42,16 +42,14 @@ public class Buscar extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Buscar frame = new Buscar();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		EventQueue.invokeLater(() -> {
+            try {
+                Buscar frame = new Buscar();
+                frame.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
 	}
 
 	/**
@@ -121,13 +119,10 @@ public class Buscar extends JFrame {
 		JScrollPane scroll_tableHospedes = new JScrollPane(tbHospedes);
 		panel.addTab("Hóspedes", new ImageIcon(Buscar.class.getResource("/imagens/pessoas.png")), scroll_tableHospedes, null);
 
-		panel.addChangeListener(new ChangeListener() {
-			@Override
-			public void stateChanged(ChangeEvent e) {
-				tbReservas.clearSelection();
-				tbHospedes.clearSelection();
-			}
-		});
+		panel.addChangeListener(e -> {
+            tbReservas.clearSelection();
+            tbHospedes.clearSelection();
+        });
 		
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon(Buscar.class.getResource("/imagens/Ha-100px.png")));
@@ -159,7 +154,7 @@ public class Buscar extends JFrame {
 			public void mouseClicked(MouseEvent e) {
 				MenuUsuario usuario = new MenuUsuario();
 				usuario.setVisible(true);
-				dispose();				
+				dispose();
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -228,7 +223,7 @@ public class Buscar extends JFrame {
 					buscarHospedes(txtBuscar.getText());
 				} else if (scroll_tableReservas.isShowing()) {
 					try {
-						Integer convertedId = Integer.parseInt(txtBuscar.getText());
+						int convertedId = Integer.parseInt(txtBuscar.getText());
 						buscarReservas(convertedId);
 					} catch (Exception exception) {
 						listarReservas();

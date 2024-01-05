@@ -1,6 +1,5 @@
 package Controllers;
 
-import DAO.HospedeDAO;
 import DAO.ReservaDAO;
 import Factory.ConnectionFactory;
 import Modelos.Reserva;

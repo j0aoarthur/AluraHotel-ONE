@@ -69,13 +69,11 @@ public class Sucesso extends JDialog {
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			{
 				JButton okButton = new JButton("OK");
-				okButton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						dispose();//serve para fechar a janela atual
-						MenuUsuario usuario = new MenuUsuario(); 
-						usuario.setVisible(true);
-					}
-				});
+				okButton.addActionListener(e -> {
+                    dispose();//serve para fechar a janela atual
+                    MenuUsuario usuario = new MenuUsuario();
+                    usuario.setVisible(true);
+                });
 				okButton.setActionCommand("OK");
 				buttonPane.add(okButton);
 				getRootPane().setDefaultButton(okButton);
