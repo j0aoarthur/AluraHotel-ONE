@@ -249,8 +249,8 @@ public class ReservasView extends JFrame {
 		btnexit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				MenuPrincipal principal = new MenuPrincipal();
-				principal.setVisible(true);
+				MenuUsuario menuUsuario = new MenuUsuario();
+				menuUsuario.setVisible(true);
 				dispose();
 			}
 			@Override
@@ -351,7 +351,18 @@ public class ReservasView extends JFrame {
 				} else {
 					JOptionPane.showMessageDialog(null, "Deve preencher todos os campos.");
 				}
-			}						
+
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				btnProximo.setBackground(new Color(0, 156, 223));
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				btnProximo.setBackground(SystemColor.textHighlight);
+			}
 		});
 		btnProximo.setLayout(null);
 		btnProximo.setBackground(SystemColor.textHighlight);

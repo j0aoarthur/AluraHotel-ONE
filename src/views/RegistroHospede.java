@@ -90,8 +90,8 @@ public class RegistroHospede extends JFrame {
 		btnexit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				MenuPrincipal principal = new MenuPrincipal();
-				principal.setVisible(true);
+				MenuUsuario menuUsuario = new MenuUsuario();
+				menuUsuario.setVisible(true);
 				dispose();
 			}
 			@Override

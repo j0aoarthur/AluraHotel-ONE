@@ -79,8 +79,7 @@ public class MenuPrincipal extends JFrame {
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JLabel lblCopyR = new JLabel("Desenvolvido por João Arthur Britto e Alura ©" +
-									new SimpleDateFormat("yyyy").format(new Date()));
+		JLabel lblCopyR = new JLabel("Desenvolvido por João Arthur Britto e Alura © " + new SimpleDateFormat("yyyy").format(new Date()));
 		lblCopyR.setBounds(250, 11, 450, 19);
 		lblCopyR.setForeground(new Color(240, 248, 255));
 		lblCopyR.setFont(new Font("Roboto", Font.PLAIN, 16));
@@ -111,7 +110,7 @@ public class MenuPrincipal extends JFrame {
 		btnexit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.exit(0);
+				dispose();
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {

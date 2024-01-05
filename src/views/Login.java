@@ -14,9 +14,7 @@ import java.awt.SystemColor;
 import java.awt.Font;
 import javax.swing.JPasswordField;
 import javax.swing.SwingConstants;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
+import java.awt.event.*;
 
 public class Login extends JFrame {
 
@@ -84,7 +82,9 @@ public class Login extends JFrame {
 		btnexit.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.exit(0);
+				MenuPrincipal menuPrincipal = new MenuPrincipal();
+				menuPrincipal.setVisible(true);
+				dispose();
 			}
 			@Override
 			public void mouseEntered(MouseEvent e) {
@@ -109,23 +109,10 @@ public class Login extends JFrame {
 		labelExit.setHorizontalAlignment(SwingConstants.CENTER);		
 		
 		txtUsuario = new JTextField();
-		txtUsuario.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				 if (txtUsuario.getText().equals("Digite seu nome de usuario")) {
-					 txtUsuario.setText("");
-					 txtUsuario.setForeground(Color.black);
-			        }
-			        if (String.valueOf(txtSenha.getPassword()).isEmpty()) {
-			        	txtSenha.setText("********");
-			        	txtSenha.setForeground(Color.gray);
-			        }
-			}
-		});
+
 		txtUsuario.setFont(new Font("Roboto", Font.PLAIN, 16));
-		txtUsuario.setText("Digite seu nome de usuario");
+		txtUsuario.setText("Digite seu usuário");
 		txtUsuario.setBorder(javax.swing.BorderFactory.createEmptyBorder());
-		txtUsuario.setForeground(SystemColor.activeCaptionBorder);
 		txtUsuario.setBounds(65, 256, 324, 32);
 		panel.add(txtUsuario);
 		txtUsuario.setColumns(10);
@@ -148,20 +135,6 @@ public class Login extends JFrame {
 		
 		txtSenha = new JPasswordField();
 		txtSenha.setText("********");
-		txtSenha.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				if (String.valueOf(txtSenha.getPassword()).equals("********")) {
-					txtSenha.setText("");
-					txtSenha.setForeground(Color.black);
-		        }
-		        if (txtUsuario.getText().isEmpty()) {
-		        	txtUsuario.setText("Digite seu nome de usuario");
-		        	txtUsuario.setForeground(Color.gray);
-		        }
-			}
-		});
-		txtSenha.setForeground(SystemColor.activeCaptionBorder);
 		txtSenha.setFont(new Font("Roboto", Font.PLAIN, 16));
 		txtSenha.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		txtSenha.setBounds(65, 353, 324, 32);
