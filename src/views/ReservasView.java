@@ -162,23 +162,13 @@ public class ReservasView extends JFrame {
 		txtDataS.setBorder(new LineBorder(new Color(255, 255, 255), 0));
 		panel.add(txtDataS);
 
-		txtDataE.addPropertyChangeListener(evt -> txtDataS.setMinSelectableDate(txtDataE.getDate()));
+		txtDataE.addPropertyChangeListener(evt -> {
+			txtDataS.setMinSelectableDate(txtDataE.getDate());
+			atualizarValoresReserva(txtDataE.getDate(), txtDataS.getDate());
+		});
 
 		txtDataS.addPropertyChangeListener(evt -> {
-            if (!txtDataS.getDate().toString().isEmpty() && !txtDataE.getDate().toString().isEmpty()) {
-                try {
-                    valorReserva = calcularValorReserva(txtDataE.getDate(), txtDataS.getDate());
-
-                    NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
-                    String valorFormatado = formatoMoeda.format(valorReserva);
-
-                    txtValor.setText(valorFormatado);
-                }
-                catch (Exception exception) {
-                    JOptionPane.showMessageDialog(contentPane, exception.getMessage());
-                }
-            }
-
+			atualizarValoresReserva(txtDataE.getDate(), txtDataS.getDate());
         });
 		
 		txtValor = new JTextField();
@@ -380,6 +370,22 @@ public class ReservasView extends JFrame {
 		}
 		else {
 			return VALOR_DIARIA;
+		}
+	}
+
+	private void atualizarValoresReserva(Date date_entrada, Date date_saida) {
+		if (!date_entrada.toString().isEmpty() && !date_saida.toString().isEmpty()) {
+			try {
+				valorReserva = calcularValorReserva(date_entrada, date_saida);
+
+				NumberFormat formatoMoeda = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
+				String valorFormatado = formatoMoeda.format(valorReserva);
+
+				txtValor.setText(valorFormatado);
+			}
+			catch (Exception exception) {
+				JOptionPane.showMessageDialog(contentPane, exception.getMessage());
+			}
 		}
 	}
 
